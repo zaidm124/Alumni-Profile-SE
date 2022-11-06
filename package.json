@@ -1,0 +1,29 @@
+{
+  "name": "alumni-profile-se",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev":"nodemon index.js",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "node index.js",
+    "client": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaidm124/Alumni-Profile-SE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zaidm124/Alumni-Profile-SE/issues"
+  },
+  "homepage": "https://github.com/zaidm124/Alumni-Profile-SE#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mongoose": "^6.7.0",
+    "nodemon": "^2.0.20"
+  }
+}
