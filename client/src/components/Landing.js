@@ -39,7 +39,7 @@ function Landing() {
           <div>
             <i
               class="fas fa-solid fa-user-tie"
-              onClick={() => window.location.assign("/event")}
+              onClick={() => window.location.assign("/about")}
             ></i>
           </div>
         </div>
