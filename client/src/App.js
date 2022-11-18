@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import About_us from "./components/About_us";
+import SearchAlumni from "./components/AlumniList";
 import Landing from "./components/Landing";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -12,6 +13,7 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/about" element={<About_us />} />
+        <Route exact path="/searchAlumni" element={<SearchAlumni />} />
       </Routes>
     </div>
   );
