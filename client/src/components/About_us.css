@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 
-body{
+.main_container{
   background-color: rgb(32, 132, 224,0.85);
   color: white;
 }
@@ -16,7 +16,7 @@ body{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 100px;
+  padding: 100px;
 }
 
 .header h1{
@@ -36,7 +36,11 @@ body{
   padding: 30px;
 }
 .about_us_image img{
-  border-radius: 20px;
+    width: 381px;
+    height: 209px;
+    margin-top: -55px;
+    margin-right: -180px;
+    border-radius: 20px;
 }
 
 /* Our team section */
@@ -48,7 +52,7 @@ body{
 .team_title,
 .supported_title{
   font-family: 'Lato', sans-serif;
-  margin-top: 50px;
+  margin-top: 0px;
   padding-top: 80px;
 text-align: center;
 font-size: 40px;
