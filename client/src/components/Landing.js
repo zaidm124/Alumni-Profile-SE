@@ -74,7 +74,7 @@ function Landing() {
             <button onClick={() => window.location.assign("/login")}>
               Login
             </button>
-            <button onClick={() => window.location.assign("/register")}>
+            <button onClick={() => window.location.assign("/signup")}>
               Register
             </button>
           </div>

@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const alumniRouter = require("./routes/alumniRoutes");
+
 require("dotenv").config();
 app.use(express.static(path.join(__dirname, "client/build")));
 
@@ -9,10 +11,10 @@ const cors = require("cors");
 const connectDB = require("./db/connect");
 app.use(express.json());
 
-const routes = require("./routes/auth");
-
 app.use(cors());
-app.use("/api/v1", routes);
+
+// route handler
+app.use("/api/v1/alumni", alumniRouter);
 
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
@@ -34,3 +36,5 @@ const start = async () => {
 };
 
 start();
+
+module.exports = app;
