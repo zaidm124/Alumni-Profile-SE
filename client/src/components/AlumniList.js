@@ -3,7 +3,33 @@ import "./AluminiList.css";
 // import db from "../FireBase";
 
 function SearchAlumni() {
-  // const [final, setFinal] = useState([]);
+  const [final, setFinal] = useState([
+    {
+    name:"Zaid",
+    batch:2024,
+    admission:"UI20CS74"
+  },
+    {
+    name:"Zaid",
+    batch:2024,
+    admission:"UI20CS74"
+  },
+    {
+    name:"Zaid",
+    batch:2024,
+    admission:"UI20CS74"
+  },
+    {
+    name:"Zaid",
+    batch:2024,
+    admission:"UI20CS74"
+  },
+    {
+    name:"Zaid",
+    batch:2024,
+    admission:"UI20CS74"
+  },
+]);
   // const [search, setSearch] = useState([]);
 //   useEffect(() => {
 //     db.collection("institute").onSnapshot((snapshhot) => {
@@ -33,8 +59,8 @@ function SearchAlumni() {
           <div className="Title">
             <h2>Search Results</h2>
           </div>
-          {/* {final.map((s) => {
-            return ( */}
+          {final.map((s) => {
+            return (
               <>
                 <a
                   href="/vieweralumni"
@@ -47,20 +73,20 @@ function SearchAlumni() {
                   <div className="ProfileBackground">
                     <div className="Profile">
                       <div>
-                        <h3>Name: s.data?.name</h3>
+                        <h3>Name: {s?.name}</h3>
                       </div>
                       <div>
-                        <h3>Batch: s.data?.batch</h3>
+                        <h3>Batch: {s?.batch}</h3>
                       </div>
                       <div>
-                        <h3>Addmission No: s.data?.admission</h3>
+                        <h3>Admission No: {s?.admission}</h3>
                       </div>
                     </div>
                   </div>
                 </a>
               </>
-            {/* ); */}
-          {/* })} */}
+             ); 
+           })} 
         </div>
       </div>
     </div>
