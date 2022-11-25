@@ -156,6 +156,18 @@ font-family: 'Roboto', sans-serif; */
 .profile_page_right div h3 span{
     color: #aaaaaa;
     font-family: 'Roboto', sans-serif;
+    margin-left: 20px;
+}
+.profile_page_right div h3 input{
+    background-color: inherit;
+    margin-left: 20px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid grey;
+    width: 200px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 20px;
 }
 .profile_page_right div h4{
     color: #aaaaaa;
@@ -200,14 +212,11 @@ font-family: 'Roboto', sans-serif; */
         text-align: center;
     }
 }
-#profile_button{
+.Buttons{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    /* margin-top: 60px; */
+    flex-direction: column;
 }
+
 .profile_page_right button{
     margin-left: 10px;
     cursor: pointer;

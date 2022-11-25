@@ -18,6 +18,8 @@ function Profile() {
   const [description, setDescription] = useState("ghjgh jhgjh ghjg jhghjg ghj gjh ");
 //   const [url, setUrl] = useState("klsjalkjdsad.com");
 
+const [update, setUpdate] = useState(false);
+
   console.log(localStorage.getItem("admission"));
 
   
@@ -55,7 +57,7 @@ function Profile() {
           <i class="fas fa-user"></i> About
         </h2>
         <div>
-          <h3>Branch : <span>{branch}</span></h3>
+          <h3>Branch : <span>{update ? <input></input> : <span>{position}</span>}</span></h3>
           
         </div>
         <div>
@@ -77,9 +79,7 @@ function Profile() {
         <div>
           <h3>Description : <span>{worked}</span></h3>
         </div>
-        <div className="profile_button">
-          <button onClick={() => window.location.assign("/")}>Back</button>
-        </div>
+        <button onClick={() => setUpdate(!update)}>Update</button>
       </div>
     </div>
   );
