@@ -3,6 +3,7 @@ import About_us from "./components/About_us";
 import SearchAlumni from "./components/AlumniList";
 import Landing from "./components/Landing";
 import Login from "./components/Login";
+import Profile from "./components/ProfileForViewer";
 import Signup from "./components/Signup";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/about" element={<About_us />} />
         <Route exact path="/searchAlumni" element={<SearchAlumni />} />
+        <Route exact path="/profile" element={<Profile />} />
       </Routes>
     </div>
   );

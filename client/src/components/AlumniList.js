@@ -63,7 +63,7 @@ function SearchAlumni() {
             return (
               <>
                 <a
-                  href="/vieweralumni"
+                  href="/profile"
                   // onClick={() =>
                   //   localStorage.setItem("admission", s.data?.admission)
                   // }
