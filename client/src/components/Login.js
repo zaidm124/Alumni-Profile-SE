@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import loginimg from "./signup-user.jpg";
 import "./Login.css";
 
 export default function Login() {
@@ -9,21 +9,6 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
-  // useEffect(async () => {
-  //   try {
-  //     const config = {
-  //       headers: {
-  //         Authorization: "Bearer " + localStorage.getItem("token"),
-  //       },
-  //     };
-  //     const { data } = await axios.get("/api/v1/alumni", config);
-  //     console.log(data);
-  //     navigate("/");
-  //   } catch (err) {
-  //     setError(err.response.data.error);
-  //   }
-  // });
 
   const submit = async (e) => {
     e.preventDefault();
@@ -51,11 +36,7 @@ export default function Login() {
   };
   return (
     <div className="login-form">
-      <img
-        className="user"
-        alt=""
-        src="https://unsplash.com/photos/2LowviVHZ-E"
-      />
+      <img className="user" alt="" src={loginimg} />
       <h1>Login Form</h1>
       <form onSubmit={submit}>
         <input

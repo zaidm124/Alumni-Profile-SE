@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
+import signupimg from "./signup-user.jpg";
+import signupbg from "./signup-background.jpg";
 import "./Signup.css";
 
 export default function Signup() {
@@ -30,7 +32,7 @@ export default function Signup() {
         },
         config
       );
-      // localStorage.setItem("token", data.responses.accessToken);
+
       window.alert("registered successfully");
       console.log(data);
       navigate("/login");
@@ -41,7 +43,7 @@ export default function Signup() {
 
   return (
     <div className="signup-form" id="signup-form">
-      {/* <img className="user" alt="" src="../../public/img/signup-user.jpg" /> */}
+      <img className="user" alt="" src={signupimg} />
       <h1>Signup Form</h1>
       <form onSubmit={submit}>
         <input
