@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const validator=require("validator")
 const alumniProfile = new mongoose.Schema({
   //name admission batch email phone url
   name: {
@@ -8,11 +8,11 @@ const alumniProfile = new mongoose.Schema({
   },
   admission: {
     type: String,
-    required: [true, "Please tell your admission number"],
+    // required: [true, "Please tell your admission number"],
   },
   batch: {
-    type: Number,
-    required: [true, "Please tell your batch year"],
+    type: String,
+    // required: [true, "Please tell your batch year"],
   },
   email: {
     type: String,
@@ -23,12 +23,31 @@ const alumniProfile = new mongoose.Schema({
   },
   phone: {
     type: String,
-    required: [true, "Please provide your phone number"],
+    // required: [true, "Please provide your phone number"],
   },
-  url: {
+  description: {
     type: String,
   },
+  branch:{
+    type:String
+  },
+  experience:{
+    type:String,
+  },
+  worked:{
+    type:String,
+  },
+  current:{
+    type:String,
+  },
+  research:{
+    type:String,
+  },
+  projects:{
+    type:String,
+  }
+  
 });
 
-const Profile = mongoose.model("Alumni", alumniProfile);
+const Profile = mongoose.model("Profile", alumniProfile);
 module.exports = Profile;

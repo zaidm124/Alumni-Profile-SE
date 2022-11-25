@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Alumni = require("../models/alumniModel");
+const Profile = require("../models/alumniProfile");
 const catchAsync = require("./../utils/catchAsync");
 
 const signToken = (id) => {
@@ -31,13 +32,27 @@ const createSendToken = (alumni, statusCode, req, res) => {
 };
 
 exports.signup = catchAsync(async (req, res, next) => {
+  const {name,email}=req.body;
   const newAlumni = await Alumni.create({
     name: req.body.username,
     email: req.body.email,
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
   });
-
+  await Profile.create({
+    name,
+    admission: "",
+    batch: "",
+    email,
+    phone: "",
+    description: "",
+    branch: "",
+    experience: "",
+    worked: "",
+    current: "",
+    research: "",
+    projects: "",
+  });
   const token = signToken(newAlumni._id);
 
   res.status(201).json({
