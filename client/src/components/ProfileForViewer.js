@@ -11,18 +11,18 @@ function Profile() {
   const [research, setResearch] = useState("hjksahksa");
   const [experience, setExperience] = useState("bohot he");
   const [branch, setBranch] = useState("CSE");
-  const [position, setPosition] = useState("69");
+  const [position, setPosition] = useState("SDE");
   const [worked, setWorked] = useState("amazon");
   const [email, setEmail] = useState("mail.com");
   const [phone, setPhone] = useState("6786786786");
-  const [description, setDescription] = useState("ghjgh jhgjh ghjg jhghjg ghj gjh ");
-//   const [url, setUrl] = useState("klsjalkjdsad.com");
+  const [description, setDescription] = useState(
+    "ghjgh jhgjh ghjg jhghjg ghj gjh "
+  );
+  //   const [url, setUrl] = useState("klsjalkjdsad.com");
 
-const [update, setUpdate] = useState(false);
+  const [update, setUpdate] = useState(false);
 
   console.log(localStorage.getItem("admission"));
-
-  
 
   return (
     <div className="profile_page">
@@ -57,29 +57,115 @@ const [update, setUpdate] = useState(false);
           <i class="fas fa-user"></i> About
         </h2>
         <div>
-          <h3>Branch : <span>{update ? <input></input> : <span>{position}</span>}</span></h3>
-          
+          <h3>
+            Branch :{" "}
+            <span>
+              {update ? (
+                <input
+                  onChange={(e) => setBranch(e.target.value)}
+                  value={branch}
+                ></input>
+              ) : (
+                <span>{branch}</span>
+              )}
+            </span>
+          </h3>
         </div>
         <div>
-          <h3>Current Position : <span>{position}</span></h3>
+          <h3>
+            Current Position :{" "}
+            <span>
+              {update ? (
+                <input
+                  onChange={(e) => setPosition(e.target.value)}
+                  value={position}
+                ></input>
+              ) : (
+                <span>{position}</span>
+              )}
+            </span>
+          </h3>
         </div>
         <div>
-          <h3>Research Field : <span>{research}</span></h3>
-          
+          <h3>
+            Research Field :{" "}
+            <span>
+              {update ? (
+                <input
+                  onChange={(e) => setResearch(e.target.value)}
+                  value={research}
+                ></input>
+              ) : (
+                <span>{research}</span>
+              )}
+            </span>
+          </h3>
         </div>
         <div>
-          <h3>Work Experience : <span>{experience}</span></h3>
+          <h3>
+            Work Experience :{" "}
+            <span>
+              {update ? (
+                <input
+                  onChange={(e) => setExperience(e.target.value)}
+                  value={experience}
+                ></input>
+              ) : (
+                <span>{experience}</span>
+              )}
+            </span>
+          </h3>
         </div>
         <div>
-          <h3>Projects During College : <span>{projects}</span></h3>
+          <h3>
+            Projects During College :{" "}
+            <span>
+              {update ? (
+                <input
+                  onChange={(e) => setProjects(e.target.value)}
+                  value={projects}
+                ></input>
+              ) : (
+                <span>{projects}</span>
+              )}
+            </span>
+          </h3>
         </div>
         <div>
-          <h3>Worked in : <span>{worked}</span></h3>
+          <h3>
+            Worked in :{" "}
+            <span>
+              {update ? (
+                <input
+                  onChange={(e) => setWorked(e.target.value)}
+                  value={worked}
+                ></input>
+              ) : (
+                <span>{worked}</span>
+              )}
+            </span>
+          </h3>
         </div>
         <div>
-          <h3>Description : <span>{worked}</span></h3>
+          <h3>
+            Description :{" "}
+            <span>
+              {update ? (
+                <input
+                  onChange={(e) => setDescription(e.target.value)}
+                  value={description}
+                ></input>
+              ) : (
+                <span>{description}</span>
+              )}
+            </span>
+          </h3>
         </div>
-        <button onClick={() => setUpdate(!update)}>Update</button>
+        {!update ? (
+          <button onClick={() => setUpdate(!update)}>Update</button>
+        ) : (
+          <button onClick={() => setUpdate(!update)}>Save</button>
+        )}
       </div>
     </div>
   );
