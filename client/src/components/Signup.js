@@ -8,14 +8,21 @@ import "./Signup.css";
 export default function Signup() {
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [batch, setBatch] = useState("");
+  const [admission, setAdmission] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
   const submit = async (e) => {
     e.preventDefault();
     try {
+      if (password != passwordConfirm) {
+        window.alert("Password not matching");
+        return;
+      }
       const config = {
         headers: {
           "content-type": "application/json",
@@ -25,10 +32,12 @@ export default function Signup() {
       const { data } = await axios.post(
         "/api/v1/alumni/signup",
         {
-          username,
+          name,
           email,
           password,
-          passwordConfirm,
+          batch,
+          admission,
+          phone
         },
         config
       );
@@ -48,11 +57,11 @@ export default function Signup() {
       <form onSubmit={submit}>
         <input
           type="text"
-          name="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          name="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           className="name-box"
-          placeholder="Your Name"
+          placeholder="Alumni Name"
           required
         />
         <input
@@ -61,7 +70,34 @@ export default function Signup() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="email-box"
-          placeholder="Your Email"
+          placeholder="Alumni Email"
+          required
+        />
+        <input
+          type="text"
+          name="batch"
+          value={batch}
+          onChange={(e) => setBatch(e.target.value)}
+          className="email-box"
+          placeholder="Passing Year"
+          required
+        />
+        <input
+          type="number"
+          name="phone"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          className="email-box"
+          placeholder="Alumni Number"
+          required
+        />
+        <input
+          type="text"
+          name="admission"
+          value={admission}
+          onChange={(e) => setAdmission(e.target.value)}
+          className="email-box"
+          placeholder="Alumni Admission Number"
           required
         />
         <input

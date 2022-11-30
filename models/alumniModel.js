@@ -20,16 +20,39 @@ const alumniSchema = new mongoose.Schema({
     minLength: 8,
     select: false,
   },
-  passwordConfirm: {
+  admission: {
     type: String,
-    required: [true, "Please confirm your password"],
-    validate: {
-      validator: function (el) {
-        return el === this.password;
-      },
-      message: "Passwords are not the same!",
-    },
+    // required: [true, "Please tell your admission number"],
   },
+  batch: {
+    type: String,
+    // required: [true, "Please tell your batch year"],
+  },
+  phone: {
+    type: String,
+    // required: [true, "Please provide your phone number"],
+  },
+  description: {
+    type: String,
+  },
+  branch:{
+    type:String
+  },
+  experience:{
+    type:String,
+  },
+  worked:{
+    type:String,
+  },
+  current:{
+    type:String,
+  },
+  research:{
+    type:String,
+  },
+  projects:{
+    type:String,
+  }
 });
 
 alumniSchema.pre("save", async function (next) {

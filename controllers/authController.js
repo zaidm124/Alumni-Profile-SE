@@ -32,19 +32,15 @@ const createSendToken = (alumni, statusCode, req, res) => {
 };
 
 exports.signup = catchAsync(async (req, res, next) => {
-  const {name,email}=req.body;
+  const {name,email,password,admission,phone,batch}=req.body;
   const newAlumni = await Alumni.create({
-    name: req.body.username,
-    email: req.body.email,
-    password: req.body.password,
-    passwordConfirm: req.body.passwordConfirm,
-  });
-  await Profile.create({
     name,
-    admission: "",
-    batch: "",
     email,
-    phone: "",
+    password,
+    admission,
+    batch,
+    email,
+    phone,
     description: "",
     branch: "",
     experience: "",

@@ -29,7 +29,7 @@ export default function Login() {
       );
       window.alert("loggedin successfully");
 
-      navigate("/");
+      navigate("/profile");
     } catch (err) {
       window.alert("logged in fail");
     }

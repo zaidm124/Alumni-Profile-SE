@@ -1,4 +1,5 @@
 const express = require("express");
+const Alumni = require("../models/alumniModel");
 const Profile = require("../models/alumniProfile");
 const app = express();
 
@@ -14,23 +15,19 @@ const router = express.Router();
  * _id
  */
 
-router.get('/getAlumni/:id', async(req,res)=>{
-    Profile.findById(req.params.id, function (err, docs) {
-        if (err){
-            console.log(err);
-        }
-        else{
-            return res.status(200).json({success:true,alumni:docs});
-        }
-    });
-})
-router.put("/update/:id", async (req, res) => {
+router.get("/getAlumni/:email", async (req, res) => {
+  const alumni = Alumni.findOne({ email: req.params.email });
+
+  return res.status(200).json({ success: true, alumni });
+});
+
+router.get("/getAlumni/:batch", async (req, res) => {
+  const alumni = Alumni.find({ batch: req.params.batch });
+  if(!alumni)return res.status(400).json({message:"Alumni Batch not found"})
+  return res.status(200).json({ success: true, alumni });
+});
+router.put("/update/:email", async (req, res) => {
   const {
-    name,
-    admission,
-    batch,
-    email,
-    phone,
     description,
     branch,
     experience,
@@ -40,17 +37,12 @@ router.put("/update/:id", async (req, res) => {
     projects,
   } = req.body;
 
-  const update_response = await Profile.updateOne(
+  await Alumni.updateOne(
     {
-      _id: req.params.id,
+      email: req.params.email,
     },
     {
       $set: {
-        name,
-        admission,
-        batch,
-        email,
-        phone,
         description,
         branch,
         experience,
@@ -64,7 +56,7 @@ router.put("/update/:id", async (req, res) => {
 
   return res.status(200).json({
     success: true,
-    message: "Job approved successfully",
+    message: "Alumni Detials updated successfully",
   });
 });
 

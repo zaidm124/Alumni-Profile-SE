@@ -1,57 +1,23 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./AluminiList.css";
 // import db from "../FireBase";
 
 function SearchAlumni() {
-  const [final, setFinal] = useState([
-    {
-    name:"Zaid",
-    batch:2024,
-    admission:"UI20CS74"
-  },
-    {
-    name:"Zaid",
-    batch:2024,
-    admission:"UI20CS74"
-  },
-    {
-    name:"Zaid",
-    batch:2024,
-    admission:"UI20CS74"
-  },
-    {
-    name:"Zaid",
-    batch:2024,
-    admission:"UI20CS74"
-  },
-    {
-    name:"Zaid",
-    batch:2024,
-    admission:"UI20CS74"
-  },
-]);
-  // const [search, setSearch] = useState([]);
-//   useEffect(() => {
-//     db.collection("institute").onSnapshot((snapshhot) => {
-//       setSearch(
-//         snapshhot.docs.map((doc) => ({
-//           id: doc.id,
-//           data: doc.data(),
-//         }))
-//       );
-//     });
-//   }, []);
-  // console.log(search);
+  const [final, setFinal] = useState([]);
 
-  // useEffect(() => {
-  //   setFinal(
-  //     search.filter((item) => item.data?.batch === localStorage.getItem("id"))
-  //   );
-  // }, [search]);
-  // console.log(final);
-  // console.log(localStorage.getItem("id"));
+  useEffect(()=>{
+    const batch=localStorage.getItem("id");
+    console.log(batch);
+    axios.get(`http://localhost:5000/api/v1/alumni/profile/getAlumni/${batch}`).then((res)=>{
+      console.log(res);
+      setFinal(res.data);
+    })
+  },[])
+  useEffect(()=>{
+    console.log(final);
+  },[])
 
-  // return final.map((s) => {
   return (
     <div>
       <div>
