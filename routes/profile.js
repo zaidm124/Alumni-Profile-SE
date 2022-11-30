@@ -21,11 +21,7 @@ router.get("/getAlumni/:email", async (req, res) => {
   return res.status(200).json({ success: true, alumni });
 });
 
-router.get("/getAlumni/:batch", async (req, res) => {
-  const alumni = Alumni.find({ batch: req.params.batch });
-  if(!alumni)return res.status(400).json({message:"Alumni Batch not found"})
-  return res.status(200).json({ success: true, alumni });
-});
+
 router.put("/update/:email", async (req, res) => {
   const {
     description,

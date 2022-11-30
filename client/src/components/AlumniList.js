@@ -6,17 +6,19 @@ import "./AluminiList.css";
 function SearchAlumni() {
   const [final, setFinal] = useState([]);
 
-  useEffect(()=>{
-    const batch=localStorage.getItem("id");
-    console.log(batch);
-    axios.get(`/api/v1/alumni/profile/getAlumni/${batch}`).then((res)=>{
-      console.log(res);
-      setFinal(res.data);
+  useEffect(() => {
+    const batch = localStorage.getItem("id");
+    // console.log(batch);
+    axios.get(`/api/v1/alumni/getAlumni/${batch}`).then((res) => {
+      console.log(res.data.alumni);
+      setFinal(res.data.alumni);
+    }).catch((err) => {
+      console.log("ERRRR")
     })
-  },[])
-  useEffect(()=>{
-    console.log(final);
-  },[])
+  }, [])
+  // useEffect(()=>{
+  //   console.log(final);
+  // },[])
 
   return (
     <div>
@@ -25,7 +27,7 @@ function SearchAlumni() {
           <div className="Title">
             <h2>Search Results</h2>
           </div>
-          {final.map((s) => {
+          {final?.map((s) => {
             return (
               <>
                 <a
@@ -51,8 +53,8 @@ function SearchAlumni() {
                   </div>
                 </a>
               </>
-             ); 
-           })} 
+            );
+          })}
         </div>
       </div>
     </div>

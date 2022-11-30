@@ -27,7 +27,7 @@ function Landing() {
           <div>
             <i
               class="fas fa-comments"
-              onClick={() => window.location.assign("/rooms")}
+              onClick={() => window.location.assign("/conversation")}
             ></i>
           </div>
           <div>
