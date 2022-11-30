@@ -9,7 +9,7 @@ function SearchAlumni() {
   useEffect(()=>{
     const batch=localStorage.getItem("id");
     console.log(batch);
-    axios.get(`http://localhost:5000/api/v1/alumni/profile/getAlumni/${batch}`).then((res)=>{
+    axios.get(`/api/v1/alumni/profile/getAlumni/${batch}`).then((res)=>{
       console.log(res);
       setFinal(res.data);
     })
