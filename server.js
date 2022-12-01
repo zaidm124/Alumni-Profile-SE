@@ -26,10 +26,10 @@ if (process.env.NODE_ENV === "production") {
 
 const start = async () => {
   try {
-    await connectDB(process.env.MONGODB_URI);
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}...`)
     );
+    await connectDB(process.env.MONGODB_URI);
   } catch (error) {
     console.log(error);
   }

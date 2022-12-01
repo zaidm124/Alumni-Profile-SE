@@ -22,38 +22,6 @@ router.get("/getAlumni/:email", async (req, res) => {
 });
 
 
-router.put("/update/:email", async (req, res) => {
-  const {
-    description,
-    branch,
-    experience,
-    worked,
-    current,
-    research,
-    projects,
-  } = req.body;
 
-  await Alumni.updateOne(
-    {
-      email: req.params.email,
-    },
-    {
-      $set: {
-        description,
-        branch,
-        experience,
-        worked,
-        current,
-        research,
-        projects,
-      },
-    }
-  );
-
-  return res.status(200).json({
-    success: true,
-    message: "Alumni Detials updated successfully",
-  });
-});
 
 module.exports = router;
