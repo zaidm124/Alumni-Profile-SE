@@ -27,7 +27,7 @@ export default function Login() {
         },
         config
       );
-      window.alert("loggedin successfully");
+      localStorage.setItem("auth",true);
 
       navigate("/profile");
     } catch (err) {

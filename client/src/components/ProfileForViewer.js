@@ -1,28 +1,55 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./ProfileforViewer.css";
 
 function Profile() {
   const [student, setStudent] = useState([]);
   const [detail, setDetail] = useState([]);
-  const [name, setName] = useState("Zaid bhimala");
-  const [admission, setAdmission] = useState("UI20CS74");
-  const [batch, setBatch] = useState("2024");
-  const [projects, setProjects] = useState("Alumini web");
-  const [research, setResearch] = useState("hjksahksa");
-  const [experience, setExperience] = useState("bohot he");
-  const [branch, setBranch] = useState("CSE");
-  const [position, setPosition] = useState("SDE");
-  const [worked, setWorked] = useState("amazon");
-  const [email, setEmail] = useState("mail.com");
-  const [phone, setPhone] = useState("6786786786");
-  const [description, setDescription] = useState(
-    "ghjgh jhgjh ghjg jhghjg ghj gjh "
-  );
+  const [name, setName] = useState("");
+  const [admission, setAdmission] = useState("");
+  const [batch, setBatch] = useState("");
+  const [projects, setProjects] = useState("");
+  const [research, setResearch] = useState("");
+  const [experience, setExperience] = useState("");
+  const [branch, setBranch] = useState("");
+  const [position, setPosition] = useState("");
+  const [worked, setWorked] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [description, setDescription] = useState("");
   //   const [url, setUrl] = useState("klsjalkjdsad.com");
 
   const [update, setUpdate] = useState(false);
+  useEffect(() => {
+    const alumni = JSON.parse(localStorage.getItem("alumni"));
+    console.log(alumni);
+    setAdmission(alumni.admission);
+    setBatch(alumni.batch);
+    setBranch(alumni.branch);
+    setDescription(alumni.description);
+    setEmail(alumni.email);
+    setExperience(alumni.experience);
+    setName(alumni.name);
+    setPhone(alumni.phone);
+    setPosition(alumni.current);
+    setProjects(alumni.projects);
+    setResearch(alumni.research);
+    setWorked(alumni.worked);
+  }, []);
 
-  console.log(localStorage.getItem("admission"));
+  const onsubmit = (e) => {
+    e.preventDefault();
+    setUpdate(!update);
+    axios.put(`/api/v1/alumni/update/${email}`, {
+      branch,
+      description,
+      experience,
+      research,
+      projects,
+      worked,
+      current:position,
+    });
+  };
 
   return (
     <div className="profile_page">
@@ -161,11 +188,11 @@ function Profile() {
             </span>
           </h3>
         </div>
-        {!update ? (
+        {localStorage.getItem("auth") && !update ? (
           <button onClick={() => setUpdate(!update)}>Update</button>
-        ) : (
-          <button onClick={() => setUpdate(!update)}>Save</button>
-        )}
+        ) : localStorage.getItem("auth") && update ? (
+          <button onClick={onsubmit}>Save</button>
+        ) : null}
       </div>
     </div>
   );

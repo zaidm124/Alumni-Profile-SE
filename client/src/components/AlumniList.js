@@ -32,9 +32,9 @@ function SearchAlumni() {
               <>
                 <a
                   href="/profile"
-                  // onClick={() =>
-                  //   localStorage.setItem("admission", s.data?.admission)
-                  // }
+                  onClick={() =>
+                    localStorage.setItem("alumni", JSON.stringify(s))
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                 >
