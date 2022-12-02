@@ -27,7 +27,9 @@ export default function Login() {
         },
         config
       );
+      console.log(data.data.alumni);
       localStorage.setItem("auth",true);
+      localStorage.setItem("alumni",JSON.stringify(data.data.alumni));
 
       navigate("/profile");
     } catch (err) {
