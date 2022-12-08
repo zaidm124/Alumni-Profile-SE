@@ -1,5 +1,13 @@
 import React from 'react'
 import "./About_us.css"
+import Zaid from "./Zaid.jpeg"
+import Dhruvil from "./Dhruvil.jpg"
+import Tushar from "./tushar.jpg"
+import Vishal from "./vishal.jpg"
+import Ujjwal from "./ujjwal.jpg"
+import Vedant from "./vedant.jpg"
+
+
 
 export default function About_us() {
     return (
@@ -12,13 +20,12 @@ export default function About_us() {
                         </div>
                         <div className="about_us_content">
                             We are a group of students from IIIT Surat, who are passionate
-                            about the world of programming. We are a group of students from
-                            IIIT Surat, who are passionate about the world of programming.
+                            about the world of programming.
                             <h3>Build using</h3>
                             <ul>
                                 <li>React js</li>
                                 <li>Node js</li>
-                                <li>.... </li>
+                                <li>Mongo DB</li>
                             </ul>
                         </div>
                     </div>
@@ -39,7 +46,7 @@ export default function About_us() {
                     <div className="team_identity">
                         <a href="http://google.com" style={{ textDecoration: 'none' }}>
                             <div className="team_member">
-                                <img src="Dhruvil_Thummar.jpg" alt="Dhruvil Thummar" />
+                                <img src={Dhruvil} alt="Dhruvil Thummar" />
                                 <div className="member_details">
                                     <h3>Dhruvil Thummar</h3>
                                     <p>Frontend developer</p>
@@ -48,7 +55,7 @@ export default function About_us() {
                         </a>
                         <a href="http://google.com" style={{ textDecoration: 'none' }}>
                             <div className="team_member">
-                                <img src="Vedant Shinde.jpg" alt="Vedant Shinde" />
+                                <img src={Vedant} alt="Vedant Shinde" />
                                 <div className="member_details">
                                     <h3>Vedant Shinde</h3>
                                     <p>Frontend developer</p>
@@ -57,7 +64,7 @@ export default function About_us() {
                         </a>
                         <a href="http://google.com" style={{ textDecoration: 'none' }}>
                             <div className="team_member">
-                                <img src="Zaid Bhimala.jpg" alt="Zaid Bhimala" />
+                                <img src={Zaid} alt="Zaid Bhimala" />
                                 <div className="member_details">
                                     <h3>Zaid Bhimala</h3>
                                     <p>Backend developer</p>
@@ -68,7 +75,7 @@ export default function About_us() {
                     <div className="team_identity">
                     <a href="http://google.com" style={{ textDecoration: 'none' }}>
                             <div className="team_member">
-                                <img src="Tushar Verma.jpg" alt="Tushar Verma" />
+                                <img src={Tushar} alt="Tushar Verma" />
                                 <div className="member_details">
                                     <h3>Tushar Verma</h3>
                                     <p>backend developer</p>
@@ -77,7 +84,7 @@ export default function About_us() {
                         </a>
                         <a href="http://google.com" style={{ textDecoration: 'none' }}>
                             <div className="team_member">
-                                <img src="Ujwal Kumar.jpg" alt="Ujwal Kumar" />
+                                <img src={Ujjwal} alt="Ujwal Kumar" />
                                 <div className="member_details">
                                     <h3>Ujwal Kumar</h3>
                                     <p>Frontend developer</p>
@@ -88,7 +95,7 @@ export default function About_us() {
                     <div className="team_identity">
                         <a href="http://google.com" style={{ textDecoration: 'none' }}>
                             <div className="team_member">
-                                <img src="Vishal_Raj.jpg" alt="Vishal Raj" />
+                                <img src={Vishal} alt="Vishal Raj" />
                                 <div className="member_details">
                                     <h3>Vishal Raj</h3>
                                     <p>Frontend developer</p>
